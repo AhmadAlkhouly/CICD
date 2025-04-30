@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   jenkins:
-    image: jenkinsci/jenkins
+    image: jenkinsci/jenkins:lts
     container_name: jenkins_container
     ports:
       - "8080:8080"
@@ -78,3 +78,6 @@ services:
     volumes:
       - ./test:/home/node/test:rw
       - ./report:/home/node/report:rw
+    command: tail -f /dev/null
+    stdin_open: true
+    tty: true
